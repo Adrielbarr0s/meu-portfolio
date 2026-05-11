@@ -1,86 +1,143 @@
-<section id="projetos" class="projects-section">
-    <div class="container">
-        <h2 class="section-title">Meus Projetos</h2>
-        <p class="section-subtitle">Aplicações reais, da estruturação da arquitetura ao deploy em produção.</p>
+<section id="projetos" class="section-padding projects-section">
+  <div class="container">
+    <h2 class="section-title text-gradient">Meus Projetos</h2>
+    <p class="section-subtitle">Aplicações reais, da estruturação da arquitetura ao deploy em produção.</p>
 
-        <div class="projects-grid">
-
-            <article class="project-card featured">
-                <div class="project-content">
-                    <span class="project-tag">Frontend / Em Produção</span>
-                    <h3 class="project-title">Advocacia Nikole Cristina</h3>
-                    <p class="project-description">
-                        Página web institucional responsiva desenvolvida para apresentar serviços jurídicos e facilitar
-                        a captação de clientes.
-                        Construída com foco em design profissional, performance e acessibilidade em dispositivos móveis,
-                        atualmente hospedada e em produção.
-                    </p>
-
-                    <div class="tech-stack">
-                        <span>Angular</span>
-                        <span>TypeScript</span>
-                        <span>SCSS</span>
-                        <span>Vercel</span>
-                    </div>
-
-                    <div class="project-links">
-                        <a href="https://nikole-cristina-advocacia.vercel.app/" target="_blank"
-                            class="btn-primary">Acessar o Site</a>
-                        <a href="https://github.com/Adrielbarr0s/nikole-cristina-advocacia" target="_blank"
-                            class="btn-secondary">Ver Código no GitHub</a>
-                    </div>
-                </div>
-            </article>
-
-            <article class="project-card">
-                <div class="project-content">
-                    <span class="project-tag">Frontend / Em Produção</span>
-                    <h3 class="project-title">Plataforma de Conscientização</h3>
-                    <p class="project-description">
-                        Plataforma web colaborativa focada na conscientização e no combate à violência doméstica.
-                        Desenvolvimento completo da interface e integração de deploy contínuo (CI/CD) diretamente para a
-                        Vercel.
-                    </p>
-
-                    <div class="tech-stack">
-                        <span>Angular</span>
-                        <span>TypeScript</span>
-                        <span>SCSS</span>
-                        <span>Vercel</span>
-                    </div>
-
-                    <div class="project-links">
-                        <a href="https://violencia-domestica-g7xn.vercel.app/" target="_blank"
-                            class="btn-primary">Acessar a Plataforma</a>
-                        <a href="https://github.com/Adrielbarr0s/violencia-domestica" target="_blank"
-                            class="btn-secondary">Ver Código no GitHub</a>
-                    </div>
-                </div>
-            </article>
-
-            <article class="project-card in-progress">
-                <div class="project-content">
-                    <span class="project-tag" style="color: #f59e0b;">Backend / Em Desenvolvimento 🚧</span>
-                    <h3 class="project-title">API Backend Containerizada</h3>
-                    <p class="project-description">
-                        [Work in Progress] Estruturação de uma API robusta utilizando as funcionalidades do Java 21.
-                        O foco atual do desenvolvimento é a implementação da arquitetura base, configuração do Maven e a
-                        preparação da infraestrutura com Docker para garantir escalabilidade.
-                    </p>
-
-                    <div class="tech-stack">
-                        <span>Java 21</span>
-                        <span>Docker</span>
-                        <span>Maven</span>
-                    </div>
-
-                    <div class="project-links">
-                        <a href="https://github.com/Adrielbarr0s/primeiro-exemplo" target="_blank"
-                            class="btn-secondary">Acompanhar Progresso no GitHub</a>
-                    </div>
-                </div>
-            </article>
-
+    <div class="projects-grid">
+      <!-- Projeto 1 -->
+      <article class="project-card glass-card animate-fade-in">
+        <div class="project-image">
+          <img src="https://images.unsplash.com/photo-1505664194779-8beaceb93744?auto=format&fit=crop&q=80&w=800" alt="Nikole Cristina Advocacia">
+          <div class="project-overlay">
+            <div class="overlay-links">
+              <a href="https://nikole-cristina-advocacia.vercel.app/" target="_blank" class="overlay-btn">Ver Site</a>
+              <a href="https://github.com/Adrielbarr0s/nikole-cristina-advocacia" target="_blank" class="overlay-btn secondary">GitHub</a>
+            </div>
+          </div>
         </div>
+        <div class="project-info">
+          <div class="project-meta">
+            <span class="tag">Frontend</span>
+            <span class="status status-live">Live</span>
+          </div>
+          <h3>Advocacia Nikole Cristina</h3>
+          <p>Plataforma institucional de alta performance para serviços jurídicos, com foco em conversão e UX premium.</p>
+          <div class="tech-tags">
+            <span>Angular</span>
+            <span>TypeScript</span>
+            <span>SCSS</span>
+            <span>Vercel</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Projeto 2 -->
+      <article class="project-card glass-card animate-fade-in">
+        <div class="project-image">
+          <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&q=80&w=800" alt="Conscientização Social">
+          <div class="project-overlay">
+            <div class="overlay-links">
+              <a href="https://violencia-domestica-g7xn.vercel.app/" target="_blank" class="overlay-btn">Ver Site</a>
+              <a href="https://github.com/Adrielbarr0s/violencia-domestica" target="_blank" class="overlay-btn secondary">GitHub</a>
+            </div>
+          </div>
+        </div>
+        <div class="project-info">
+          <div class="project-meta">
+            <span class="tag">Social Impact</span>
+            <span class="status status-live">Live</span>
+          </div>
+          <h3>Combate à Violência</h3>
+          <p>Plataforma colaborativa para conscientização e apoio, com foco em acessibilidade e segurança da informação.</p>
+          <div class="tech-tags">
+            <span>Angular</span>
+            <span>TypeScript</span>
+            <span>CI/CD</span>
+            <span>SCSS</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Projeto 3 -->
+      <article class="project-card glass-card animate-fade-in">
+        <div class="project-image">
+          <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800" alt="Agentes de IA">
+          <div class="project-overlay">
+            <div class="overlay-links">
+              <a href="https://github.com/Adrielbarr0s/agentes-ai-n8n" target="_blank" class="overlay-btn secondary">GitHub Repo</a>
+            </div>
+          </div>
+        </div>
+        <div class="project-info">
+          <div class="project-meta">
+            <span class="tag">AI & Automation</span>
+            <span class="status status-live">Active</span>
+          </div>
+          <h3>Laboratório de Agentes IA</h3>
+          <p>Integrações avançadas com Google Gemini, pipelines de ETL e automação de rotinas complexas via n8n.</p>
+          <div class="tech-tags">
+            <span>n8n</span>
+            <span>Gemini AI</span>
+            <span>PostgreSQL</span>
+            <span>Python</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Projeto 4 -->
+      <article class="project-card glass-card animate-fade-in">
+        <div class="project-image">
+          <img src="https://images.unsplash.com/photo-1581888227599-779811939961?auto=format&fit=crop&q=80&w=800" alt="Registro Pet">
+          <div class="project-overlay">
+
+            <div class="overlay-links">
+              <a href="https://github.com/Adrielbarr0s/registro-de-animais-de-estimacao" target="_blank" class="overlay-btn secondary">GitHub Repo</a>
+            </div>
+          </div>
+        </div>
+        <div class="project-info">
+          <div class="project-meta">
+            <span class="tag">Fullstack</span>
+            <span class="status status-live">Live</span>
+          </div>
+          <h3>Sistema de Registro Pet</h3>
+          <p>Aplicação completa para gerenciamento de pets, com frontend em Angular e backend robusto em Node.js.</p>
+          <div class="tech-tags">
+            <span>Angular</span>
+            <span>Node.js</span>
+            <span>MySQL</span>
+            <span>Express</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Projeto 5 -->
+      <article class="project-card glass-card animate-fade-in">
+        <div class="project-image">
+          <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc51?auto=format&fit=crop&q=80&w=800" alt="Backend API">
+          <div class="project-overlay">
+            <div class="overlay-links">
+              <a href="https://github.com/Adrielbarr0s/primeiro-exemplo" target="_blank" class="overlay-btn secondary">GitHub Repo</a>
+            </div>
+          </div>
+        </div>
+        <div class="project-info">
+          <div class="project-meta">
+            <span class="tag">Backend</span>
+            <span class="status status-dev">In Progress</span>
+          </div>
+          <h3>API Robusta Java 21</h3>
+          <p>Arquitetura de microsserviços containerizada focada em alta escalabilidade e conformidade técnica.</p>
+          <div class="tech-tags">
+            <span>Java 21</span>
+            <span>Docker</span>
+            <span>Maven</span>
+            <span>PostgreSQL</span>
+          </div>
+        </div>
+      </article>
+
+
     </div>
+  </div>
 </section>
