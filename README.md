@@ -1,59 +1,53 @@
-# MeuPortfolio
+# 💻 Meu Portfólio Profissional
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.3.
+Este repositório contém o código-fonte do meu portfólio pessoal, desenvolvido para centralizar a minha trajetória, projetos e competências técnicas como **Analista de Sistemas**.
 
-## Development server
+> ⚠️ **Status: Em desenvolvimento** 🚧  
+> O projeto encontra-se em fase de construção, com atualizações constantes de layout e implementação de novos módulos e funcionalidades.
 
-To start a local development server, run:
+---
 
-```bash
-ng serve
-```
+## 🚀 Tecnologias e Ferramentas
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+O projeto foi construído utilizando tecnologias modernas do ecossistema web:
 
-## Code scaffolding
+* **Angular 21** - Framework principal para a interface.
+* **TypeScript** - Linguagem para um código mais seguro e escalável.
+* **Vitest** - Framework de testes unitários de alta performance.
+* **Vercel** - Plataforma utilizada para o alojamento e CI/CD.
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+---
 
-```bash
-ng generate component component-name
-```
+## 🛠️ Instalação e Execução Local
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+Para explorar o código ou executar o projeto no seu ambiente local, siga os passos abaixo:
 
-```bash
-ng generate --help
-```
+1.  **Clonar o repositório:**
+    ```bash
+    git clone [https://github.com/Adrielbarr0s/meu-portfolio.git](https://github.com/Adrielbarr0s/meu-portfolio.git)
+    ```
 
-## Building
+2.  **Aceder à pasta do projeto:**
+    ```bash
+    cd meu-portfolio
+    ```
 
-To build the project run:
+3.  **Instalar as dependências:**
+    ```bash
+    npm install
+    ```
 
-```bash
-ng build
-```
+4.  **Iniciar o servidor de desenvolvimento:**
+    ```bash
+    ng serve
+    ```
+    Após iniciar, aceda a `http://localhost:4200/` no seu navegador.
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+---
 
-## Running unit tests
+## 🧪 Testes
 
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+A qualidade do código é validada através de testes unitários:
 
 ```bash
 ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
