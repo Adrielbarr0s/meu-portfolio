@@ -12,11 +12,13 @@ $bg-dark: #050505;
     background-color: $bg-dark; // Fallback se a imagem demorar a carregar
     overflow: hidden;
 
-    /* A Mágica do Plano de Fundo: Gradiente por cima + Imagem por baixo */
-    background-image:
-        linear-gradient(135deg, rgba($bg-dark, 1) 0%, rgba($bg-dark, 0.5) 100%),
-        url('../../../assets/rear-view.jpg');
-
+    /* Imagem de Fundo com Gradiente de Proteção para Leitura */
+    background-image: linear-gradient(
+        to right,
+        rgba(5, 5, 5, 0.95) 10%,
+        rgba(5, 5, 5, 0.7) 50%,
+        rgba(5, 5, 5, 0.4) 100%
+    ), url('../../../assets/rear-view.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -47,6 +49,7 @@ $bg-dark: #050505;
     line-height: 1.1;
     margin: 15px 0;
     letter-spacing: -0.04em;
+    text-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
 
     .dot {
         color: #10b981;
@@ -63,6 +66,7 @@ $bg-dark: #050505;
 
     .dynamic-text {
         color: #fff;
+        text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
     }
 }
 
@@ -76,8 +80,9 @@ $bg-dark: #050505;
     max-width: 600px;
     font-size: clamp(1rem, 3vw, 1.15rem);
     line-height: 1.7;
-    color: #9ca3af;
+    color: #e5e7eb; // Cor mais clara para melhor contraste
     margin-bottom: 3.5rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .cta-group {
