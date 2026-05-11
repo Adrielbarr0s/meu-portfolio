@@ -1,0 +1,136 @@
+$bg-dark: #050505;
+
+/* ----------------------------------------------------------- */
+/* HERO SECTION: Layout Responsivo + Imagem de Fundo Mesclada  */
+/* ----------------------------------------------------------- */
+.hero-section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    /* Padding responsivo: 140px topo, 5% laterais no mobile, 60px base */
+    padding: 140px 5% 60px;
+    background-color: $bg-dark; // Fallback se a imagem demorar a carregar
+    overflow: hidden;
+
+    /* A Mágica do Plano de Fundo: Gradiente por cima + Imagem por baixo */
+    background-image:
+        linear-gradient(135deg, rgba($bg-dark, 1) 0%, rgba($bg-dark, 0.5) 100%),
+        url('../../../assets/rear-view.jpg');
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    /* Em tablets e notebooks, aumentamos o respiro lateral */
+    @media (min-width: 768px) {
+        padding: 140px 10% 60px;
+    }
+}
+
+.hero-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.greeting {
+    color: #10b981;
+    font-family: 'Fira Code', monospace;
+    font-size: clamp(0.9rem, 2vw, 1.1rem);
+}
+
+.name {
+    /* O clamp garante que o nome Adriel Barros se ajuste de 2.8rem até 5.5rem */
+    font-size: clamp(2.8rem, 10vw, 5.5rem);
+    font-weight: 800;
+    color: #fff;
+    line-height: 1.1;
+    margin: 15px 0;
+    letter-spacing: -0.04em;
+
+    .dot {
+        color: #10b981;
+    }
+}
+
+.hero-subtitle {
+    font-size: clamp(1.3rem, 5vw, 2.5rem);
+    margin-bottom: 2rem;
+    font-weight: 600;
+    color: #9ca3af;
+    /* Altura mínima menor no mobile para não sobrar buraco */
+    min-height: clamp(2.5rem, 8vw, 3.5rem);
+
+    .dynamic-text {
+        color: #fff;
+    }
+}
+
+.cursor {
+    color: #10b981;
+    animation: blink 0.8s infinite;
+    margin-left: 4px;
+}
+
+.description {
+    max-width: 600px;
+    font-size: clamp(1rem, 3vw, 1.15rem);
+    line-height: 1.7;
+    color: #9ca3af;
+    margin-bottom: 3.5rem;
+}
+
+.cta-group {
+    display: flex;
+    gap: 1.2rem;
+    /* Se a tela for muito pequena, os botões ficam um embaixo do outro */
+    flex-wrap: wrap;
+
+    .btn-primary,
+    .btn-secondary {
+        padding: 1rem 2.2rem;
+        border-radius: 8px;
+        font-weight: 700;
+        text-decoration: none;
+        transition: 0.3s ease;
+        text-align: center;
+
+        /* No mobile bem pequeno, o botão ocupa a largura toda */
+        @media (max-width: 480px) {
+            width: 100%;
+        }
+    }
+
+    .btn-primary {
+        background-color: #10b981;
+        color: #000;
+
+        &:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(16, 185, 129, 0.2);
+        }
+    }
+
+    .btn-secondary {
+        border: 1px solid #222;
+        color: #fff;
+
+        &:hover {
+            background: #111;
+            border-color: #444;
+            transform: translateY(-3px);
+        }
+    }
+}
+
+@keyframes blink {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+}

@@ -1,0 +1,137 @@
+$bg-dark: #050505;
+$card-bg: #111111;
+$border-color: #222222;
+$text-main: #f3f4f6;
+$text-muted: #9ca3af;
+$accent-color: #10b981;
+
+.projects-section {
+    background-color: $bg-dark;
+    padding: 6rem 10%;
+    color: $text-main;
+    font-family: 'Inter', sans-serif;
+}
+
+.section-title {
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.03em;
+}
+
+.section-subtitle {
+    color: $text-muted;
+    font-size: 1.1rem;
+    margin-bottom: 4rem;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+.project-card {
+    background-color: $card-bg;
+    border: 1px solid $border-color;
+    border-radius: 8px;
+    padding: 2.5rem;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+
+    &:hover {
+        transform: translateY(-5px);
+        border-color: #444;
+    }
+
+    &.featured {
+        border-left: 4px solid $accent-color; // Destaque para o projeto Java
+    }
+}
+
+.project-tag {
+    font-family: 'Fira Code', monospace;
+    color: $accent-color;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    display: block;
+    margin-bottom: 1rem;
+}
+
+.project-title {
+    font-size: 2rem;
+    margin: 0 0 1rem 0;
+}
+
+.project-description {
+    color: #d1d5db;
+    line-height: 1.6;
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    max-width: 800px;
+}
+
+.tech-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-bottom: 2.5rem;
+
+    span {
+        background-color: #1a1a1a;
+        color: $text-muted;
+        padding: 0.4rem 0.8rem;
+        border-radius: 4px;
+        font-size: 0.85rem;
+        font-weight: 500;
+        border: 1px solid #333;
+    }
+}
+
+.project-links {
+    display: flex;
+    gap: 1rem;
+
+    a {
+        text-decoration: none;
+        padding: 0.75rem 1.5rem;
+        font-size: 0.95rem;
+        font-weight: 600;
+        border-radius: 4px;
+        transition: all 0.3s ease;
+    }
+
+    .btn-primary {
+        background-color: $text-main;
+        color: $bg-dark;
+
+        &:hover {
+            background-color: $accent-color;
+        }
+    }
+
+    .btn-secondary {
+        background-color: transparent;
+        color: $text-main;
+        border: 1px solid #4b5563;
+
+        &:hover {
+            border-color: $text-main;
+        }
+    }
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .projects-section {
+        padding: 4rem 5%;
+    }
+
+    .project-card {
+        padding: 1.5rem;
+    }
+
+    .project-links {
+        flex-direction: column;
+    }
+}
