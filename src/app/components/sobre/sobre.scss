@@ -1,6 +1,8 @@
 .about-section {
   position: relative;
+  max-width: 100%;
   overflow: hidden;
+  padding: 100px 1.25rem;
 }
 
 .about-grid {
@@ -21,6 +23,7 @@
   color: var(--primary);
   margin-bottom: 2rem;
   line-height: 1.4;
+  overflow-wrap: break-word;
 }
 
 .about-bio {
@@ -94,7 +97,9 @@
 
 .code-window {
   width: 100%;
+  max-width: 100%;
   overflow: hidden;
+  overflow-x: auto;
   box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
 }
 
@@ -132,6 +137,13 @@
   font-size: 0.9rem;
   line-height: 1.7;
   background: rgba(10, 10, 10, 0.8);
+
+  pre,
+  code {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    max-width: 100%;
+  }
 
   .keyword { color: #c678dd; }
   .class { color: #e5c07b; }

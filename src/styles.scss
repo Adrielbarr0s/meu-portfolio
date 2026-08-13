@@ -26,6 +26,14 @@
   padding: 0;
 }
 
+html,
+body {
+  max-width: 100% !important;
+  overflow-x: hidden !important;
+  margin: 0;
+  padding: 0;
+}
+
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 80px;
@@ -37,7 +45,6 @@ body {
   background-color: var(--bg-dark);
   color: var(--text-main);
   font-family: 'Inter', sans-serif;
-  overflow-x: hidden;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
 }
@@ -81,6 +88,11 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 700;
   letter-spacing: -0.02em;
   line-height: 1.2;
+  overflow-wrap: break-word;
+}
+
+p {
+  overflow-wrap: break-word;
 }
 
 a {
@@ -95,6 +107,10 @@ a {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 1.5rem;
+
+  @media (max-width: 768px) {
+    padding: 0 1.25rem;
+  }
 }
 
 .section-padding {
