@@ -3,9 +3,16 @@
     <h2 class="section-title text-gradient">Meus Projetos</h2>
     <p class="section-subtitle">Aplicações reais, da estruturação da arquitetura ao deploy em produção.</p>
 
+    <div class="project-filters">
+      <button class="filter-btn" [class.active]="filtroAtivo === 'Todos'" (click)="setFiltro('Todos')">Todos</button>
+      <button class="filter-btn" [class.active]="filtroAtivo === 'Backend'" (click)="setFiltro('Backend')">Backend</button>
+      <button class="filter-btn" [class.active]="filtroAtivo === 'Frontend'" (click)="setFiltro('Frontend')">Frontend</button>
+      <button class="filter-btn" [class.active]="filtroAtivo === 'Automação'" (click)="setFiltro('Automação')">Automação & IA</button>
+    </div>
+
     <div class="projects-grid">
       <!-- Projeto 1 -->
-      <article class="project-card glass-card animate-fade-in">
+      <article class="project-card glass-card animate-fade-in" *ngIf="filtroAtivo === 'Todos' || filtroAtivo === 'Backend' || filtroAtivo === 'Frontend' || filtroAtivo === 'Automação'">
         <div class="project-image">
           <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800" alt="Dashboard BilhetePro">
           <div class="project-overlay">
@@ -32,7 +39,7 @@
       </article>
 
       <!-- Projeto 2 -->
-      <article class="project-card glass-card animate-fade-in">
+      <article class="project-card glass-card animate-fade-in" *ngIf="filtroAtivo === 'Todos' || filtroAtivo === 'Frontend'">
         <div class="project-image">
           <img src="https://images.unsplash.com/photo-1505664194779-8beaceb93744?auto=format&fit=crop&q=80&w=800" alt="Nikole Cristina Advocacia">
           <div class="project-overlay">
@@ -59,7 +66,7 @@
       </article>
 
       <!-- Projeto 2 -->
-      <article class="project-card glass-card animate-fade-in">
+      <article class="project-card glass-card animate-fade-in" *ngIf="filtroAtivo === 'Todos' || filtroAtivo === 'Frontend'">
         <div class="project-image">
           <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&q=80&w=800" alt="Conscientização Social">
           <div class="project-overlay">
@@ -86,7 +93,7 @@
       </article>
 
       <!-- Projeto 3 -->
-      <article class="project-card glass-card animate-fade-in">
+      <article class="project-card glass-card animate-fade-in" *ngIf="filtroAtivo === 'Todos' || filtroAtivo === 'Automação' || filtroAtivo === 'Backend'">
         <div class="project-image">
           <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800" alt="Agentes de IA">
           <div class="project-overlay">
@@ -112,7 +119,7 @@
       </article>
 
       <!-- Projeto 4 -->
-      <article class="project-card glass-card animate-fade-in">
+      <article class="project-card glass-card animate-fade-in" *ngIf="filtroAtivo === 'Todos' || filtroAtivo === 'Backend' || filtroAtivo === 'Frontend'">
         <div class="project-image">
           <img src="https://images.unsplash.com/photo-1581888227599-779811939961?auto=format&fit=crop&q=80&w=800" alt="Registro Pet">
           <div class="project-overlay">
@@ -139,7 +146,7 @@
       </article>
 
       <!-- Projeto 5 -->
-      <article class="project-card glass-card animate-fade-in">
+      <article class="project-card glass-card animate-fade-in" *ngIf="filtroAtivo === 'Todos' || filtroAtivo === 'Backend'">
         <div class="project-image">
           <img src="https://images.unsplash.com/photo-1555099962-4199c345e5dd?auto=format&fit=crop&q=80&w=800" alt="Código API Java">
           <div class="project-overlay">

@@ -6,6 +6,9 @@
   position: relative;
   overflow: hidden;
   padding: 120px 1.25rem 80px;
+  background: linear-gradient(135deg, rgba(15, 23, 42, 1) 0%, rgba(20, 184, 134, 0.05) 50%, rgba(15, 23, 42, 1) 100%);
+  background-size: 200% 200%;
+  animation: gradientMove 10s ease infinite;
 }
 
 .hero-bg-elements {
@@ -240,4 +243,10 @@
 
 @keyframes blink {
   50% { opacity: 0; }
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }

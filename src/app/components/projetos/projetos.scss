@@ -2,6 +2,32 @@
   position: relative;
 }
 
+.project-filters {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  background: transparent;
+  border: 1px solid var(--primary);
+  color: var(--text-main);
+  padding: 0.5rem 1.5rem;
+  border-radius: 30px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:hover,
+  &.active {
+    background: var(--primary);
+    color: var(--bg-dark);
+    box-shadow: 0 4px 15px rgba(20, 184, 134, 0.3);
+  }
+}
+
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -17,10 +43,12 @@
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   
   &:hover {
-    transform: translateY(-10px);
+    transform: translateY(-8px);
     border-color: var(--primary);
+    box-shadow: 0 10px 30px rgba(20, 184, 134, 0.15);
     
     .project-image img {
       transform: scale(1.1);

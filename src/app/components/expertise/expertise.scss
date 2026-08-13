@@ -15,11 +15,12 @@
 
 .skill-card {
   padding: 2.5rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   
   &:hover {
-    transform: translateY(-10px);
+    transform: translateY(-8px);
     border-color: var(--primary);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 10px 30px rgba(20, 184, 134, 0.15);
     
     .icon-wrapper {
       background: var(--primary);
