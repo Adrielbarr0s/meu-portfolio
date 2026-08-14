@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject, PLATFORM_ID } from '@angular/core';
+import { Component, OnInit, OnDestroy, Inject, PLATFORM_ID, NgZone, ChangeDetectorRef } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 
 @Component({
@@ -7,57 +7,68 @@ import { isPlatformBrowser } from '@angular/common';
   templateUrl: './hero.html',
   styleUrl: './hero.scss'
 })
-export class Hero implements OnInit {
-
-  roles: string[] = [
-    "Analista de Sistemas",
-    "Especialista Java 21",
-    "Dev Full Stack",
-    "Arquiteto de Soluções"
+export class HeroComponent implements OnInit, OnDestroy {
+  words: string[] = [
+    'Desenvolvedor Java Júnior',
+    'Desenvolvedor Backend',
+    'Focado em Java & Spring Boot',
+    'Entusiasta em Spring & Angular'
   ];
+  dynamicText: string = '';
+  private wordIndex: number = 0;
+  private charIndex: number = 0;
+  private isDeleting: boolean = false;
+  private timer: any = null;
 
-  constructor(@Inject(PLATFORM_ID) private platformId: Object) { }
+  constructor(
+    @Inject(PLATFORM_ID) private platformId: Object,
+    private ngZone: NgZone,
+    private cdr: ChangeDetectorRef
+  ) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     if (isPlatformBrowser(this.platformId)) {
-      this.typeWriter();
+      // Roda o timer fora da zona para não travar a hidratação do SSR
+      this.ngZone.runOutsideAngular(() => {
+        this.typeLoop();
+      });
     }
   }
 
-  typeWriter() {
-    const textElement = document.querySelector('.dynamic-text');
-    if (!textElement) return;
+  ngOnDestroy(): void {
+    if (this.timer) {
+      clearTimeout(this.timer);
+    }
+  }
 
-    let roleIndex = 0;
-    let charIndex = 0;
-    let isDeleting = false;
-    let typeSpeed = 60; // Velocidade de escrita ágil
+  private typeLoop(): void {
+    const currentWord = this.words[this.wordIndex];
 
-    const type = () => {
-      const currentRole = this.roles[roleIndex];
+    if (this.isDeleting) {
+      this.charIndex--;
+    } else {
+      this.charIndex++;
+    }
 
-      if (isDeleting) {
-        textElement.textContent = currentRole.substring(0, charIndex - 1);
-        charIndex--;
-        typeSpeed = 25; // Apaga quase instantaneamente
-      } else {
-        textElement.textContent = currentRole.substring(0, charIndex + 1);
-        charIndex++;
-        typeSpeed = 60;
-      }
+    const nextText = currentWord.substring(0, this.charIndex);
 
-      if (!isDeleting && charIndex === currentRole.length) {
-        isDeleting = true;
-        typeSpeed = 1200; // Pausa curta ao terminar de escrever
-      } else if (isDeleting && charIndex === 0) {
-        isDeleting = false;
-        roleIndex = (roleIndex + 1) % this.roles.length;
-        typeSpeed = 400;
-      }
+    // Notifica o Angular para atualizar o template
+    this.ngZone.run(() => {
+      this.dynamicText = nextText;
+      this.cdr.detectChanges();
+    });
 
-      setTimeout(type, typeSpeed);
-    };
+    let speed = this.isDeleting ? 40 : 80;
 
-    type();
+    if (!this.isDeleting && this.charIndex === currentWord.length) {
+      speed = 2000;
+      this.isDeleting = true;
+    } else if (this.isDeleting && this.charIndex === 0) {
+      this.isDeleting = false;
+      this.wordIndex = (this.wordIndex + 1) % this.words.length;
+      speed = 400;
+    }
+
+    this.timer = setTimeout(() => this.typeLoop(), speed);
   }
 }

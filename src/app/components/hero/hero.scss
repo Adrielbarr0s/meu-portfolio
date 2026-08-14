@@ -136,30 +136,13 @@
   display: flex;
   justify-content: center;
   gap: 1.5rem;
-  margin-bottom: 3rem;
+  margin-bottom: 0;
 
   @media (max-width: 480px) {
     flex-direction: column;
 
     .btn {
       width: 100%;
-    }
-  }
-}
-
-.hero-socials {
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
-
-  .social-link {
-    font-size: 0.9rem;
-    font-weight: 600;
-    color: var(--text-muted);
-    position: relative;
-
-    &:hover {
-      color: var(--primary);
     }
   }
 }

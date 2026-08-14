@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { Header } from './components/header/header';
-import { Hero } from './components/hero/hero';
+import { HeroComponent } from './components/hero/hero';
 import { Sobre } from './components/sobre/sobre';
 import { Expertise } from './components/expertise/expertise';
 import { Projetos } from './components/projetos/projetos';
@@ -13,7 +13,7 @@ import { Footer } from './components/footer/footer';
   imports: [
     RouterOutlet,
     Header,
-    Hero,
+    HeroComponent,
     Sobre,
     Expertise,
     Projetos,
