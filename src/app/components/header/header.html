@@ -1,17 +1,31 @@
-<header class="main-header">
+<header class="main-header" [class.scrolled]="isScrolled()">
     <nav class="nav-container">
-        <a href="#home" class="logo">
+        <a href="#home" class="logo" (click)="closeMenu()">
             <span class="logo-text">Adriel<span class="dot">.</span></span>
         </a>
 
-        <ul class="nav-links">
-            <li><a href="#sobre">Sobre</a></li>
-            <li><a href="#expertise">Ecossistema</a></li>
-            <li><a href="#projetos">Projetos</a></li>
+        <ul class="nav-links" [class.open]="isMenuOpen()">
+            <li><a href="#sobre" (click)="closeMenu()">Sobre</a></li>
+            <li><a href="#expertise" (click)="closeMenu()">Ecossistema</a></li>
+            <li><a href="#projetos" (click)="closeMenu()">Projetos</a></li>
+            <li class="mobile-cta">
+                <a href="#contato" class="btn-contact" (click)="closeMenu()">Falar Comigo</a>
+            </li>
         </ul>
 
         <div class="cta-header">
             <a href="#contato" class="btn-contact">Falar Comigo</a>
         </div>
+
+        <button
+          type="button"
+          class="menu-toggle"
+          [class.active]="isMenuOpen()"
+          (click)="toggleMenu()"
+          aria-label="Alternar menu de navegação">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
     </nav>
 </header>

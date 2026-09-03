@@ -4,174 +4,55 @@
     <p class="section-subtitle">Aplicações reais, da estruturação da arquitetura ao deploy em produção.</p>
 
     <div class="project-filters">
-      <button class="filter-btn" [class.active]="filtroAtivo === 'Todos'" (click)="setFiltro('Todos')">Todos</button>
-      <button class="filter-btn" [class.active]="filtroAtivo === 'Backend'" (click)="setFiltro('Backend')">Backend</button>
-      <button class="filter-btn" [class.active]="filtroAtivo === 'Frontend'" (click)="setFiltro('Frontend')">Frontend</button>
-      <button class="filter-btn" [class.active]="filtroAtivo === 'Automação'" (click)="setFiltro('Automação')">Automação & IA</button>
+      @for (filtro of filtros; track filtro) {
+        <button
+          type="button"
+          class="filter-btn"
+          [class.active]="filtroAtivo() === filtro"
+          (click)="setFiltro(filtro)">
+          {{ filtro === 'Automação' ? 'Automação & IA' : filtro }}
+        </button>
+      }
     </div>
 
     <div class="projects-grid">
-      <!-- Projeto 1 -->
-      <article class="project-card glass-card animate-fade-in" *ngIf="filtroAtivo === 'Todos' || filtroAtivo === 'Backend' || filtroAtivo === 'Frontend' || filtroAtivo === 'Automação'">
-        <div class="project-image">
-          <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800" alt="Dashboard BilhetePro">
-          <div class="project-overlay">
-            <div class="overlay-links">
-              <!-- <a href="#" target="_blank" class="overlay-btn">Ver Site</a> -->
-              <a href="https://github.com/Adrielbarr0s/BilhetePro" target="_blank" class="overlay-btn secondary">GitHub</a>
+      @for (projeto of projetosFiltrados(); track projeto.id) {
+        <article class="project-card glass-card animate-fade-in">
+          <div class="project-image">
+            <img [src]="projeto.image" [alt]="projeto.imageAlt">
+            <div class="project-overlay">
+              <div class="overlay-links">
+                @if (projeto.liveUrl) {
+                  <a [href]="projeto.liveUrl" target="_blank" rel="noopener noreferrer" class="overlay-btn">Ver Site</a>
+                }
+                @if (projeto.githubUrl) {
+                  <a [href]="projeto.githubUrl" target="_blank" rel="noopener noreferrer" class="overlay-btn secondary">
+                    {{ projeto.githubLabel ?? 'GitHub' }}
+                  </a>
+                }
+              </div>
             </div>
           </div>
-        </div>
-        <div class="project-info">
-          <div class="project-meta">
-            <span class="tag">Fullstack & Automação</span>
-            <span class="status status-dev">Em Desenvolvimento</span>
-          </div>
-          <h3>BilhetePro</h3>
-          <p>Aplicação escalável focada em gestão e automação de processos.</p>
-          <div class="tech-tags">
-            <span>Java</span>
-            <span>Spring Boot</span>
-            <span>Angular</span>
-            <span>n8n</span>
-          </div>
-        </div>
-      </article>
-
-      <!-- Projeto 2 -->
-      <article class="project-card glass-card animate-fade-in" *ngIf="filtroAtivo === 'Todos' || filtroAtivo === 'Frontend'">
-        <div class="project-image">
-          <img src="https://images.unsplash.com/photo-1505664194779-8beaceb93744?auto=format&fit=crop&q=80&w=800" alt="Nikole Cristina Advocacia">
-          <div class="project-overlay">
-            <div class="overlay-links">
-              <a href="https://nikole-cristina-advocacia.vercel.app/" target="_blank" class="overlay-btn">Ver Site</a>
-              <a href="https://github.com/Adrielbarr0s/nikole-cristina-advocacia" target="_blank" class="overlay-btn secondary">GitHub</a>
+          <div class="project-info">
+            <div class="project-meta">
+              <span class="tag">{{ projeto.tag }}</span>
+              <span
+                class="status"
+                [class.status-live]="projeto.status === 'live'"
+                [class.status-dev]="projeto.status === 'dev'">
+                {{ projeto.statusText }}
+              </span>
+            </div>
+            <h3>{{ projeto.title }}</h3>
+            <p>{{ projeto.description }}</p>
+            <div class="tech-tags">
+              @for (tech of projeto.techs; track tech) {
+                <span>{{ tech }}</span>
+              }
             </div>
           </div>
-        </div>
-        <div class="project-info">
-          <div class="project-meta">
-            <span class="tag">Frontend</span>
-            <span class="status status-live">Live</span>
-          </div>
-          <h3>Advocacia Nikole Cristina</h3>
-          <p>Plataforma institucional de alta performance para serviços jurídicos, com foco em conversão e UX premium.</p>
-          <div class="tech-tags">
-            <span>Angular</span>
-            <span>TypeScript</span>
-            <span>SCSS</span>
-            <span>Vercel</span>
-          </div>
-        </div>
-      </article>
-
-      <!-- Projeto 2 -->
-      <article class="project-card glass-card animate-fade-in" *ngIf="filtroAtivo === 'Todos' || filtroAtivo === 'Frontend'">
-        <div class="project-image">
-          <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&q=80&w=800" alt="Conscientização Social">
-          <div class="project-overlay">
-            <div class="overlay-links">
-              <a href="https://violencia-domestica-g7xn.vercel.app/" target="_blank" class="overlay-btn">Ver Site</a>
-              <a href="https://github.com/Adrielbarr0s/violencia-domestica" target="_blank" class="overlay-btn secondary">GitHub</a>
-            </div>
-          </div>
-        </div>
-        <div class="project-info">
-          <div class="project-meta">
-            <span class="tag">Social Impact</span>
-            <span class="status status-live">Live</span>
-          </div>
-          <h3>Combate à Violência</h3>
-          <p>Plataforma colaborativa para conscientização e apoio, com foco em acessibilidade e segurança da informação.</p>
-          <div class="tech-tags">
-            <span>Angular</span>
-            <span>TypeScript</span>
-            <span>CI/CD</span>
-            <span>SCSS</span>
-          </div>
-        </div>
-      </article>
-
-      <!-- Projeto 3 -->
-      <article class="project-card glass-card animate-fade-in" *ngIf="filtroAtivo === 'Todos' || filtroAtivo === 'Automação' || filtroAtivo === 'Backend'">
-        <div class="project-image">
-          <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800" alt="Agentes de IA">
-          <div class="project-overlay">
-            <div class="overlay-links">
-              <a href="https://github.com/Adrielbarr0s/ai-agents-n8n" target="_blank" class="overlay-btn secondary">GitHub Repo</a>
-            </div>
-          </div>
-        </div>
-        <div class="project-info">
-          <div class="project-meta">
-            <span class="tag">AI & Automation</span>
-            <span class="status status-live">Active</span>
-          </div>
-          <h3>Laboratório de Agentes IA</h3>
-          <p>Integrações avançadas com Google Gemini, pipelines de ETL e automação de rotinas complexas via n8n.</p>
-          <div class="tech-tags">
-            <span>n8n</span>
-            <span>Gemini AI</span>
-            <span>PostgreSQL</span>
-            <span>Python</span>
-          </div>
-        </div>
-      </article>
-
-      <!-- Projeto 4 -->
-      <article class="project-card glass-card animate-fade-in" *ngIf="filtroAtivo === 'Todos' || filtroAtivo === 'Backend' || filtroAtivo === 'Frontend'">
-        <div class="project-image">
-          <img src="https://images.unsplash.com/photo-1581888227599-779811939961?auto=format&fit=crop&q=80&w=800" alt="Registro Pet">
-          <div class="project-overlay">
-            <div class="overlay-links">
-              <a href="https://pet-register-omega.vercel.app/" target="_blank" rel="noopener noreferrer" class="overlay-btn">Ver Site</a>
-              <a href="https://github.com/Adrielbarr0s/pet-register" target="_blank" rel="noopener noreferrer" class="overlay-btn secondary">GitHub</a>
-            </div>
-          </div>
-        </div>
-        <div class="project-info">
-          <div class="project-meta">
-            <span class="tag">Fullstack</span>
-            <span class="status status-live">Live</span>
-          </div>
-          <h3>Sistema de Registro Pet</h3>
-          <p>Aplicação completa para gerenciamento de pets, com frontend em Angular e backend robusto em Node.js.</p>
-          <div class="tech-tags">
-            <span>Angular</span>
-            <span>Node.js</span>
-            <span>MySQL</span>
-            <span>Express</span>
-          </div>
-        </div>
-      </article>
-
-      <!-- Projeto 5 -->
-      <article class="project-card glass-card animate-fade-in" *ngIf="filtroAtivo === 'Todos' || filtroAtivo === 'Backend'">
-        <div class="project-image">
-          <img src="https://images.unsplash.com/photo-1555099962-4199c345e5dd?auto=format&fit=crop&q=80&w=800" alt="Código API Java">
-          <div class="project-overlay">
-            <div class="overlay-links">
-              <a href="https://github.com/Adrielbarr0s/primeiro-exemplo" target="_blank" class="overlay-btn secondary">GitHub Repo</a>
-            </div>
-          </div>
-        </div>
-        <div class="project-info">
-          <div class="project-meta">
-            <span class="tag">Backend</span>
-            <span class="status status-dev">In Progress</span>
-          </div>
-          <h3>API Robusta Java 21</h3>
-          <p>Arquitetura de microsserviços containerizada focada em alta escalabilidade e conformidade técnica.</p>
-          <div class="tech-tags">
-            <span>Java 21</span>
-            <span>Docker</span>
-            <span>Maven</span>
-            <span>PostgreSQL</span>
-          </div>
-        </div>
-      </article>
-
-
+        </article>
+      }
     </div>
   </div>
 </section>

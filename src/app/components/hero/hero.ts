@@ -14,9 +14,9 @@ export class HeroComponent implements OnInit, OnDestroy {
     'Focado em Java & Spring Boot',
     'Entusiasta em Spring & Angular'
   ];
-  dynamicText: string = '';
+  dynamicText: string = 'Desenvolvedor Java Júnior';
   private wordIndex: number = 0;
-  private charIndex: number = 0;
+  private charIndex: number = 24; // Comprimento de 'Desenvolvedor Java Júnior'
   private isDeleting: boolean = false;
   private timer: any = null;
 
@@ -28,9 +28,10 @@ export class HeroComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     if (isPlatformBrowser(this.platformId)) {
-      // Roda o timer fora da zona para não travar a hidratação do SSR
+      // Inicia fora da zona Angular para não travar hidratação do SSR
       this.ngZone.runOutsideAngular(() => {
-        this.typeLoop();
+        this.isDeleting = true;
+        this.timer = setTimeout(() => this.typeLoop(), 2500);
       });
     }
   }

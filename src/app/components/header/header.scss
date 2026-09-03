@@ -69,10 +69,6 @@
   gap: 2.5rem;
   list-style: none;
 
-  @media (max-width: 768px) {
-    display: none;
-  }
-
   a {
     color: var(--text-muted);
     font-weight: 500;
@@ -98,6 +94,52 @@
       }
     }
   }
+
+  .mobile-cta {
+    display: none;
+  }
+
+  @media (max-width: 768px) {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 100%;
+    height: 100vh;
+    background: rgba(5, 5, 5, 0.96);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    transition: right 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 1050;
+
+    &.open {
+      right: 0;
+    }
+
+    a {
+      font-size: 1.35rem;
+      font-weight: 600;
+    }
+
+    .mobile-cta {
+      display: block;
+      margin-top: 1rem;
+
+      .btn-contact {
+        display: inline-block;
+        padding: 0.8rem 2.2rem;
+        font-size: 1rem;
+        background: var(--primary);
+        color: #000;
+        font-weight: 700;
+        border-radius: 12px;
+        box-shadow: 0 4px 20px var(--primary-glow);
+      }
+    }
+  }
 }
 
 .cta-header {
@@ -120,5 +162,48 @@
       transform: translateY(-2px);
       box-shadow: 0 4px 15px var(--primary-glow);
     }
+  }
+
+  @media (max-width: 768px) {
+    display: none;
+  }
+}
+
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 30px;
+  height: 24px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 1100;
+
+  .bar {
+    width: 100%;
+    height: 2px;
+    background: var(--text-main);
+    border-radius: 2px;
+    transition: var(--transition);
+  }
+
+  &.active {
+    .bar:nth-child(1) {
+      transform: translateY(8px) rotate(45deg);
+      background: var(--primary);
+    }
+    .bar:nth-child(2) {
+      opacity: 0;
+    }
+    .bar:nth-child(3) {
+      transform: translateY(-8px) rotate(-45deg);
+      background: var(--primary);
+    }
+  }
+
+  @media (max-width: 768px) {
+    display: flex;
   }
 }
