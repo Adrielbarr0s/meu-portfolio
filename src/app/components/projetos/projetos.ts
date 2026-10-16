@@ -117,6 +117,20 @@ export class Projetos {
       githubUrl: 'https://github.com/Adrielbarr0s/ecommerce-api',
       githubLabel: 'GitHub Repo',
     },
+    {
+      id: 'spring-cloud-microservices',
+      title: 'Microsserviços Spring Cloud',
+      description: 'Arquitetura distribuída com Eureka Service Discovery, Spring Cloud Gateway, Config Server centralizado, JWT e comunicação integrada.',
+      tag: 'Backend & Cloud',
+      status: 'live',
+      statusText: 'Live',
+      image: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=800',
+      imageAlt: 'Arquitetura de Microsserviços Spring Cloud',
+      categories: ['Backend'],
+      techs: ['Spring Cloud', 'Eureka', 'Gateway', 'JWT'],
+      githubUrl: 'https://github.com/Adrielbarr0s/Spring-cloud-microservices-architecture',
+      githubLabel: 'GitHub Repo',
+    },
   ]);
 
   readonly projetosFiltrados = computed(() => {
