@@ -136,27 +136,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 1rem;
+  gap: 1.5rem;
   margin-bottom: 2.5rem;
-  flex-wrap: wrap;
-
-  .btn-cv {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    border-color: rgba(16, 185, 129, 0.4);
-    color: var(--text-main);
-
-    &:hover {
-      background: rgba(16, 185, 129, 0.1);
-      border-color: var(--primary);
-      color: var(--primary);
-    }
-
-    .btn-icon {
-      stroke: var(--primary);
-    }
-  }
 
   @media (max-width: 600px) {
     flex-direction: column;
